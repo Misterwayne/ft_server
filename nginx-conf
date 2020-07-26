@@ -1,0 +1,26 @@
+# -p 80:80 = link les port de la machine au docker
+# -it = open le bash du docker dans le terminal
+# docker ps - list les proces docker
+# /etc/nginx/sites-available# ip address = donne l'ip du docker serveur
+#
+#
+#
+#
+#
+#
+#
+#
+
+
+server {
+        listen 80;
+	listen [::]:80;
+	server_name localhost www.localhost;
+        index test.html index.html index.htm index.nginx-debian.html; #fichier d'index du site
+
+
+        location / {
+                root  /var/www/html/;                                 #location du dossier ou se trouve l'index
+                try_files $uri $uri/ =404;                            #$uri = request et try_files repond au request avec les fichier correspondant
+        }
+}
